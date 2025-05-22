@@ -14,6 +14,21 @@ const buildSackOfLetters = () =>{
 
 export const drawLetters = () => {
   // Implement this method for wave 1
+  const sackOfLetters = buildSackOfLetters();
+  const drawnLetters = [];
+  const letterCounts = {};
+
+  while (drawnLetters.length < 10) {
+    const index = Math.floor(Math.random() * sackOfLetters.length);
+    const letter = sackOfLetters[index];
+
+    letterCounts[letter] = (letterCounts[letter] || 0) + 1;
+
+    if (letterCounts[letter] <= letterPool[letter]) {
+      drawnLetters.push(letter);
+    }
+  }
+  return drawnLetters;
 };
 
 export const usesAvailableLetters = (input, lettersInHand) => {
