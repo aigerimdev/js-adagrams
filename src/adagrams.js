@@ -31,8 +31,26 @@ export const drawLetters = () => {
   return drawnLetters;
 };
 
+//helper function 
+const buildCountLetters = (letterList) => {
+  const letterCounter = {};
+  for (let letter of letterList){
+    letterCounter[letter] = (letterCounter[letter] || 0) + 1;
+  }
+  return letterCounter
+}
+
 export const usesAvailableLetters = (input, lettersInHand) => {
   // Implement this method for wave 2
+  const letterCounts = buildCountLetters(lettersInHand);
+
+  for (let letter of input.toUpperCase()){
+    if (!(letter in letterCounts) || letterCounts[letter] === 0) {
+      return false;
+    }
+    letterCounts[letter] -= 1;
+  }
+  return true;
 };
 
 export const scoreWord = (word) => {
