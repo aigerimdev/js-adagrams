@@ -41,7 +41,6 @@ const buildCountLetters = (letterList) => {
 }
 
 export const usesAvailableLetters = (input, lettersInHand) => {
-  // Implement this method for wave 2
   const letterCounts = buildCountLetters(lettersInHand);
 
   for (let letter of input.toUpperCase()){
@@ -79,7 +78,6 @@ export const scoreWord = (word) => {
 };
 
 export const highestScoreFrom = (words) => {
-  // Implement this method for wave 4
   let highestScore = 0;
   let winningWord = '';
 
@@ -94,7 +92,7 @@ export const highestScoreFrom = (words) => {
       if (winningWord.length !== 10) {
         if (word.length === 10) {
           winningWord = word;
-        } else if (word.length !== 10 && word.length < winningWord.length){
+        } else if (word.length < winningWord.length){
           winningWord = word;
         }
       }
