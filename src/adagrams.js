@@ -15,7 +15,6 @@ const buildSackOfLetters = () => {
   return letters;
 };
 
-
 export const drawLetters = () => {
   const sackOfLetters = buildSackOfLetters();
   const drawnLetters = [];
