@@ -4,13 +4,17 @@ const letterPool = {
     'S': 4, 'T': 6, 'U': 4, 'V': 2, 'W': 2, 'X': 1, 'Y': 2, 'Z': 1
 }
 // Helper function that builds an array of letters based on their frequency in letterPool.
-const buildSackOfLetters = () =>{
+const buildSackOfLetters = () => {
   let letters = [];
-  Object.entries(letterPool).forEach(([letter, count])=> {
-    letters.push(...Array(count).fill(letter));
-  });
+  for (const letter in letterPool) {
+    const count = letterPool[letter];
+    for (let i = 0; i < count; i++) {
+      letters.push(letter);
+    }
+  }
   return letters;
 };
+
 
 export const drawLetters = () => {
   const sackOfLetters = buildSackOfLetters();
